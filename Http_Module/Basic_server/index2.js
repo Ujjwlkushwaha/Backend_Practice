@@ -10,7 +10,7 @@ const server = http.createServer((req , res)=>{
     // if i want to send some response to the client 
     // => there are three step and we must follow these steps
 
-    // step => 1 set the header of the response....... res.writeHead(status code , "status massege" , {Content_Type});
+    // step => 1 set the header of the response....... res.writeHead(status code , "status massege" , {Content_Type});;
     res.writeHead(200,'OK',{'Content-Type': 'text/html'});
 
     // step => 2 :: write the messege using........... write("you send anyThing")........ methods
