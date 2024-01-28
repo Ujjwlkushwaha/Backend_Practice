@@ -1,0 +1,19 @@
+In this folder we learn about json file and how we work with json....
+
+Json => JSON (javascript object notation) for storing and transporting data.
+
+-> json is often used when data is send from a server to webpage or client.
+ example--- 
+{
+    'name' : 'Ujjwal',
+    'sername' : 'kushwaha'
+}
+
+** note that -> this is not an object and any object method does not work with json
+
+Json has only two methods........................
+
+-> const jsonData = JSON.stringify(obj); for ojb to JSON
+-> const objData = JSON.parse(jsonDataa); for JSON to Obj
+
+
