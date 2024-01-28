@@ -14,11 +14,21 @@ const server = http.createServer((req , res)=>{
     res.writeHead(200,'OK',{'Content-Type': 'text/html'});
 
     // step => 2 :: write the messege using........... write("you send anyThing")........ methods
+
+    // sending normal html text...............
     res.write("<h1>This is Home page</h1>");
 
-    // step => 3 :: end the response body .............end()...........
-    res.end();
-
+    // sending html file......................
+    fs.readFile("index.html", 'utf-8', (err,data)=>{
+        if(err){
+            console.log(err);
+            res.end();
+            return;
+        }else{
+            res.write(data);
+            res.end();
+        }
+    });
 });
 
 server.listen(port , 'localhost' , (err)=>{
