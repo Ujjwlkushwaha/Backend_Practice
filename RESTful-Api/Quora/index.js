@@ -1,7 +1,9 @@
 const express = require("express")
 const path = require("path");
 const app = express();
-
+// genearting id's 
+const { v4: newId } = require('uuid');
+ // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
 
 // 👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍
 
@@ -22,27 +24,27 @@ app.use(express.static(path.join(__dirname , "public/Javascript/")));
 
 let posts = [
     {
-        id : 1,
+        id : newId(),
         username : "karan",
         content  : "Hello world from the cloud⛈️ " 
     },
     {
-        id : 2,
+        id : newId(),
         username : "Jane Doe",
         content  : "I'm learning Node.js🖥️"
     },
     {
-        id :3,
+        id :newId(),
         username : "John Doe",
         content  : "I'm learning Express.js⭐⭐"
     }
     ,{
-        id : 4,
+        id : newId(),
         username : "Emily Smith",
         content  : "I'm learning MongoDB👻"
     },
     {
-        id : 5,
+        id : newId(),
         username : "David Johnson",
         content  : "I'm learning React.js🎉👺"
     }
@@ -67,13 +69,9 @@ app.post('/posts', (req, res) => {
     let {username , content } = req.body;
 
     // this is the noraml way of creating id's for every data
-    let id =  posts.length + 1; 
+    let id = newId(); 
     posts.push({ id , username , content}  );
 
-
-    // But in practical scenarios , we should use hash id instead of noramal id's 
-
-        // 👍for generate unique id we use a package called UUID -> npm i uuid 
     res.redirect("/posts")
 })
 
