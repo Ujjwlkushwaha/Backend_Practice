@@ -1,0 +1,2 @@
+Hay this is Fs module of Node js
+This is Another method of fs module

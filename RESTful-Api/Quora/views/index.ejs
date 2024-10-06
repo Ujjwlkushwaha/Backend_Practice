@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quora Posts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+
+    <div class="main">
+       <div class="flex justify-between items-center w-1/2 mx-auto py-10">
+        <h1 class="text-center text-[50px]">Quora Posts</h1>
+        <a href="http://localhost:3000/posts/new" class="px-5 py-2 bg-blue-500 rounded-lg text-white">New Post</a>
+       </div>
+
+        <div class="flex flex-col items-center gap-5">
+            <% for( post of posts ) {%>
+                <div class="w-[60%] min-h-[10vh] bg-gray-200 px-10 py-5">
+                    <h4 class="text-xl">
+                        <%=post.content %>
+                    </h4>
+                    <h5 class="text-sm">Author:<%=post.username %>
+                    </h5>
+                    <div class="mt-5">
+                        <a class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">Edit Post </a>
+                        <a href="http://localhost:3000/posts/<%=post.id%>" class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">View Post </a>
+                        <a href="#" class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">Delete</a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Request</title>
+</head>
+<body>
+
+    <!--📌  Here we create a form and send form data using get request -->
+    <form action="http://localhost:3000/register" method="get">
+
+        <!-- ⭐ jab bhi hm koi data server ko bhejte hai input se to name attribute complesury hota hai -->
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button>Submit</button>
+    </form>
+
+    <hr/>
+
+    <!--📌  Here we create a form and send form data using post request -->
+    <form action="http://localhost:3000/register" method="post">
+
+        <!-- ⭐ jab bhi hm koi data server ko bhejte hai input se to name attribute complesury hota hai -->
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <button>Submit</button>
+    </form>
+
+    <!--🗡️🗡️🗡️  LETS SE THE DIFFERENCE B/W GET AND POST  🗡️🗡️🗡️🗡️ -->
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    <div class="w-full h-screen flex items-center justify-center">
+        <form action="/posts" method="post" class="flex flex-col border rounded-xl border-black px-5 py-10">
+
+            <h1 class="text-center text-2xl font-bold mb-10">New Post</h1>
+
+            <label for="title" class="">Title:</label>
+            <input type="text" id="title" name="username" required class="border border-black px-3 py-1 mb-5" placeholder="Enter Author name..">
+
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required class="border border-black w-[400px] h-[200px] p-3 "
+                placeholder="Add some content...."></textarea>
+            <input type="submit" value="Submit" class="bg-blue-500 text-white my-5 py-2">
+        </form>
+    </div>
+
+</body>
+
+</html>
