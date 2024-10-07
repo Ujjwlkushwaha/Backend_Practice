@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit content</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+    <div class="edits w-full h-screen flex items-center flex-col gap-5 justify-center">
+        <h1 class="text-3xl">Username : <%=post.username.toUpperCase()%></h1>
+        
+        <form method="post" action="/posts/<%=post.id%>?_method=PATCH" class="flex flex-col gap-10">
+            <textarea name="content" rows="10" class="border border-black p-5 rounded0lg" cols="35" id="content"><%=post.content%></textarea>
+            <button class="px-5 py-2 bg-green-500 text-white mr-5 rounded-lg ">Save</button>
+        </form>
+    </div>
+    
+</body>
+</html>

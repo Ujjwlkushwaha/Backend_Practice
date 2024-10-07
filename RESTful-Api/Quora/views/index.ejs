@@ -21,14 +21,16 @@
             <% for( post of posts ) {%>
                 <div class="w-[60%] min-h-[10vh] bg-gray-200 px-10 py-5">
                     <h4 class="text-xl">
-                        <%=post.content %>
+                        <%=post.content%>
                     </h4>
-                    <h5 class="text-sm">Author:<%=post.username %>
-                    </h5>
+                    <h5 class="text-sm">Author:<%= post.username %></h5>
                     <div class="mt-5">
-                        <a class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">Edit Post </a>
+                        <a href="http://localhost:3000/posts/<%=post.id%>/edit" class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">Edit Post </a>
                         <a href="http://localhost:3000/posts/<%=post.id%>" class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">View Post </a>
-                        <a href="#" class="px-5 py-2 bg-blue-500 text-white mr-5 rounded-lg">Delete</a>
+                        
+                        <form action="/posts/<%=post.id%>?_method=DELETE" method="post" class="inline-block">
+                            <button type="submit" class="px-5 py-2 bg-red-500 text-white rounded-lg">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <% } %>

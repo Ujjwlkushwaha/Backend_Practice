@@ -5,6 +5,11 @@ const app = express();
 const { v4: newId } = require('uuid');
  // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
 
+ // overide the HTTP request method
+ var methodOverride = require('method-override')
+ app.use(methodOverride('_method'))
+
+
 // 👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍👍
 
 // parse data into readable format 
@@ -49,20 +54,32 @@ let posts = [
         content  : "I'm learning React.js🎉👺"
     }
 ];
-//📌  routes 
 
+
+//📌  routes------------------------------------------ 
 app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>")
 })
+// --------------------------------------------------
 
+// show all posts ------------------------------------
 app.get('/posts', (req, res) => {
     res.render("index.ejs" , { posts })
 })
+// -------------------------------------------------
+
+// // show individual post
+// app.get('/posts/:id', (req, res) =>{
+//     let {id} = req.params;
+//     let post = posts.find(p => p.id == id);
+//     res.render('showPost.ejs' ,{ post })
+// });
+// // 🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️🗡️
 
 // 👉 create new post -> ye do step me hoga
-
 app.get('/posts/new', (req, res) => {
-    res.render("createPost.ejs")
+    console.log('request granted')
+    res.render('create.ejs');
 })
 
 app.post('/posts', (req, res) => {
@@ -70,20 +87,38 @@ app.post('/posts', (req, res) => {
 
     // this is the noraml way of creating id's for every data
     let id = newId(); 
-    posts.push({ id , username , content}  );
+    posts.push({ id , username , content});
 
     res.redirect("/posts")
+})
+
+//👋 Patch request for updating data
+
+app.get('/posts/:id/edit', (req, res) => {
+    let {id} = req.params;
+    let post = posts.find(p => p.id == id);
+    res.render('edit.ejs' , { post })
+})
+
+app.patch('/posts/:id', (req, res) => {
+    // res.send('patch request working')
+
+    let {id} = req.params;
+    let post = posts.find(p => p.id == id);
+
+    let newContent  = req.body.content;
+    post.content = newContent;
+    
+    res.redirect(`/posts`)
+}) 
+
+app.delete('/posts/:id', (req, res) => {
+    let {id} = req.params ;
+    posts = posts.filter(p => p.id !== id);
+    res.redirect('/posts')
 })
 
 app.listen(3000 , ()=>{
     console.log('server listening on port');
     
 })
-
-//  ⭐ find individual post 
-app.get('/posts/:id', (req, res) =>{
-    let {id} = req.params;
-
-    let post = posts.find(p => p.id == id);
-    res.render('showPost.ejs' ,{ post })
-});
