@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/index.css">
+
+    <title>Edit chat</title>
+</head>
+
+<body>
+
+    <h1>Edit Your chat :: <%=chat.from%>
+    </h1>
+
+    <div class="newChat">
+        <form action="/chats/<%=chat._id%>/edit?_method=PATCH" method="post">
+            <input type="text" placeholder="username" name="from" id="user" value="<%=chat.from%>">
+            <input type="text" placeholder="message" name="msg" id="msg" value="<%=chat.msg%>">
+            <input type="submit" value="send" id="button">
+        </form>
+    </div>
+
+</body>
+
+</html>

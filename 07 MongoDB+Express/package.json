@@ -3,7 +3,8 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "faker": "^6.6.6",
-    "mongoose": "^8.7.1"
+    "method-override": "^3.0.0",
+    "mongoose": "^8.8.0",
+    "nodemon": "^3.1.7"
   }
 }
