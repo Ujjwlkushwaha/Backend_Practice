@@ -1,0 +1,9 @@
+Asynchronous Error => ( See implementation folder )
+       Aese error jo database ne bheji ho.
+
+  * Jab bhi hm asynchronous error encounter krte hai to usko handle thoda different tarike se handle kiya jata hai
+
+    * `try-catch` block se error handle krne pr jayga
+    * Error ko catch block me catch krne pr jayga
+
+  * To fir jab bhi ab async function dikhega to uska sara code try-catch block ke andar likhana jisse vo error thow kre to handle ho jaye
